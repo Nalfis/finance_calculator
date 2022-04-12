@@ -33,5 +33,5 @@
    # # How to run a docker container and pass parameters to the python script
 
        - docker run --rm nalfis/imagename:ver -h [to display all options]
-       - docker run --rm nalfis/imagename:ver -ct cmp -p 600000 -t 30 -i 2.8 -m 12 -camort 	 
+       - docker run --rm nalfis/imagename:ver -ct cmp -camort -p 530100 -t 30 -i 4.375 -m 12
    
