@@ -33,13 +33,13 @@ pipeline {
             agent any
             environment {
                 VOLUME = '$(pwd)/:/src'
-                IMAGE = 'cdrx/pyinstaller-linux:python3'
+                IMAGE = 'cdrx/pyinstaller-windows:python3'
             }
             steps{
                 dir(path: env.build_ID) {
                     unstash(name: 'compiled-results')
                     echo "compilando..."
-                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller --onefile finance.py'"
+                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F finance.py'"
                 }
             }
             post {
