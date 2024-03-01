@@ -39,7 +39,7 @@ pipeline {
                 dir(path: env.build_ID) {
                     unstash(name: 'compiled-results')
                     echo "compilando..."
-                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller -F finance.py'"
+                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'pyinstaller --onefile finance.py'"
                 }
             }
             post {
