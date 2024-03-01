@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:2-alpine'
+                    image 'python:3-alpine'
                 }
             }
             steps{
@@ -33,7 +33,10 @@ pipeline {
             agent any
             environment {
                 VOLUME = '$(pwd)/:/src'
+                // for windows executable build
                 IMAGE = 'cdrx/pyinstaller-windows:python3'
+                // for linux executable build
+                //IMAGE = 'cdrx/pyinstaller-linux:python3'
             }
             steps{
                 dir(path: env.build_ID) {
