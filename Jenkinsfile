@@ -46,7 +46,7 @@ pipeline {
                 success {
                     echo "Limpiando el folder con la application empaquetada"
                     archiveArtifacts "${env.BUILD_ID}/dist/"
-                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+                    //sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                 }
             }
         }
