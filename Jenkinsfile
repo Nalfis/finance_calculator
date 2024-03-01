@@ -4,12 +4,12 @@ pipeline {
         stage('Build') {
             agent {
                 docker {
-                    image 'python:2-alpine'
+                    image 'python:3-alpine'
                 }
             }
             steps{
                 echo "Compilando los dos programitas"
-                sh 'python -m py_compile FinanceCalcs.py calcs.py finance.py'
+                sh 'python -m py_compile FinanceCalcs.py finance.py'
                 stash(name: 'compiled-results', includes: '*.py*')
             }
         }
@@ -33,7 +33,10 @@ pipeline {
             agent any
             environment {
                 VOLUME = '$(pwd)/:/src'
-                IMAGE = 'cdrx/pyinstaller-linux:python3'
+                // for windows executable build
+                IMAGE = 'cdrx/pyinstaller-windows:python3'
+                // for linux executable build
+                //IMAGE = 'cdrx/pyinstaller-linux:python3'
             }
             steps{
                 dir(path: env.build_ID) {
@@ -46,7 +49,7 @@ pipeline {
                 success {
                     echo "Limpiando el folder con la application empaquetada"
                     archiveArtifacts "${env.BUILD_ID}/dist/"
-                    sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
+                    //sh "docker run --rm -v ${VOLUME} ${IMAGE} 'rm -rf build dist'"
                 }
             }
         }
