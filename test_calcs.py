@@ -3,7 +3,7 @@ import FinanceCalcs
 
 class TestCalc(unittest.TestCase):
     """
-    Test the add function from the calc library
+    Test the add function from the calc libraries
     """
 
     def test_simple_interest(self):
