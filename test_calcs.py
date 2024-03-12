@@ -8,7 +8,7 @@ class TestCalc(unittest.TestCase):
 
     def test_simple_interest(self):
         """
-        Test that the calculation of the simple interest method
+        Test that the calculation of the simple interest methods
         """
 
         simpcalc = FinanceCalcs.SimpleFinanceCalc()
