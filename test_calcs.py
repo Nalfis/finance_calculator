@@ -24,7 +24,7 @@ class TestCalc(unittest.TestCase):
 
     def test_future_value(self):
         """
-        Test that the calculation of future value method
+        Test that the calculation of future value methods
         """
 
         simpcalc = FinanceCalcs.SimpleFinanceCalc()
