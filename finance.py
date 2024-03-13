@@ -12,7 +12,7 @@ p= principal
 A = Future Value
 P = Present Value
 ''')
-parser.add_argument("-ct", type=str, dest='calc_type', choices=['smp', 'cmp'], help="choose interest type: compound "
+parser.add_argument("-ct", type=str, dest='calc_type', choices=['smp', 'cmp'], help="choose interest type: compound"
                                                                                     "interest or simple interest")
 parser.add_argument("-p", "--principal", type=float, required=True, help="Input Principal Ammount - Float")
 parser.add_argument("-i", "--interest", type=float, required=True, help="Input Interest Ammount - Float")
