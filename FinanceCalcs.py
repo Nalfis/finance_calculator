@@ -169,7 +169,8 @@ class CompoundFinanceCalc(object):
         else:
             self._present_value = self._future_value / (
                 (1 + (self.interest_rate / self.periods)) ** (self.periods * self.time))
-            print("\nFuture Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods: %s\nTotal Periods %s\nPresent Value: %s"
+            print("\nFuture Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods:" \
+                  "%s\nTotal Periods %s\nPresent Value: %s"
                   % ('${:0,.2f}'.format(self._future_value),
                      '{:0,.4f}'.format(self.interest_rate),
                      self.time,
@@ -202,8 +203,10 @@ class CompoundFinanceCalc(object):
             print("Interest rate should be larger than zero")
         else:
             self._pmt = self._present_value * ((self.interest_rate / self.periods) / (
-                1 - (1 + (self.interest_rate / self.periods)) ** (-1 * self.periods * self.time)))
-            print("\nPresent Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods: %s\nTotal Periods %s\nPayment: %s"
+                1 - (1 + (self.interest_rate / self.periods)) \
+                      ** (-1 * self.periods * self.time)))
+            print("\nPresent Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods:" \ 
+                  "%s\nTotal Periods %s\nPayment: %s"
                   % ('${:0,.2f}'.format(self._present_value),
                      '{:0,.4f}'.format(self.interest_rate),
                      self.time,
