@@ -62,7 +62,7 @@ class SimpleFinanceCalc(object):
         elif self.interest_rate <= 0:
             print("Interest rate should be larger than zero")
         else:
-            self._interest = (self.principal * self.interest_rate * self.time)
+            self._interest = self.principal * self.interest_rate * self.time
             self._future_value = self.principal + (self.principal * self.interest_rate * self.time)
             print("\nPrincipal %s \nInt Rate: %s \nLoan Time: %s \nInterest: %s \nFuture Value: %s"
                   % ('${:0,.2f}'.format(self.principal),
@@ -134,7 +134,8 @@ class CompoundFinanceCalc(object):
         elif self.interest_rate <= 0:
             print("Interest rate should be larger than zero")
         else:
-            self._future_value = self.principal * (1 + (self.interest_rate/self.periods)) ** (self.periods * self.time)
+            self._future_value = self.principal * (1 + (self.interest_rate/self.periods)) \
+                  ** (self.periods * self.time)
             print("\nPrincipal %s \nInt Rate: %s\nLoan Time: %s\nPeriods: %s\nTotal Periods %s\nFuture Value: %s"
                   % ('${:0,.2f}'.format(self.principal),
                      '{:0,.4f}'.format(self.interest_rate),
