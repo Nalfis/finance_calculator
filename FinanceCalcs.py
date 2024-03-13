@@ -136,7 +136,8 @@ class CompoundFinanceCalc(object):
         else:
             self._future_value = self.principal * (1 + (self.interest_rate/self.periods)) \
                   ** (self.periods * self.time)
-            print("\nPrincipal %s \nInt Rate: %s\nLoan Time: %s\nPeriods: %s\nTotal Periods %s\nFuture Value: %s"
+            print("\nPrincipal %s \nInt Rate: %s\nLoan Time: %s\nPeriods: %s\nTotal Periods" \
+                   "%s\nFuture Value: %s"
                   % ('${:0,.2f}'.format(self.principal),
                      '{:0,.4f}'.format(self.interest_rate),
                      self.time,
