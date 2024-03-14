@@ -205,8 +205,8 @@ class CompoundFinanceCalc(object):
             self._pmt = self._present_value * ((self.interest_rate / self.periods) / (
                 1 - (1 + (self.interest_rate / self.periods)) \
                       ** (-1 * self.periods * self.time)))
-            print("\nPresent Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods:" \ 
-                  "%s\nTotal Periods %s\nPayment: %s"
+            print("\nPresent Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods: %s\nTotal Periods \
+                  %s\nPayment: %s"
                   % ('${:0,.2f}'.format(self._present_value),
                      '{:0,.4f}'.format(self.interest_rate),
                      self.time,
@@ -237,7 +237,8 @@ class CompoundFinanceCalc(object):
             print("Interest rate should be larger than zero")
         else:
             self._present_value = self._pmt * (
-                        (1 - (1 + (self.interest_rate / self.periods)) ** (-1 * self.periods * self.time)) / (
+                        (1 - (1 + (self.interest_rate / self.periods))
+                         ** (-1 * self.periods * self.time)) / (
                             self.interest_rate / self.periods))
             print("\nPayment %s\nInt Rate: %s\nLoan Time: %s\n" \
                   "Periods: %s\nTotal Periods %s\nPresent Value of Annuity: %s"
@@ -274,8 +275,10 @@ class CompoundFinanceCalc(object):
             print("Interest rate should be larger than zero")
         else:
             self._pmt = self._future_value * ((self.interest_rate / self.periods) / (
-                  (1 + (self.interest_rate / self.periods)) ** (self.periods * self.time)-1))
-            print("\nPresent Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods: %s\nTotal Periods %s\nPayment: %s"
+                  (1 + (self.interest_rate / self.periods))
+                  ** (self.periods * self.time)-1))
+            print("\nPresent Value %s\nInt Rate: %s\nLoan Time: %s\nPeriods: \
+                   %s\nTotal Periods %s\nPayment: %s"
                   % ('${:0,.2f}'.format(self._future_value),
                      '{:0,.4f}'.format(self.interest_rate),
                      self.time,
@@ -306,7 +309,8 @@ class CompoundFinanceCalc(object):
             print("Interest rate should be larger than zero")
         else:
             self._future_value = self._pmt * (
-                        ((1 + (self.interest_rate / self.periods)) ** (self.periods * self.time)-1) / (
+                        ((1 + (self.interest_rate / self.periods))
+                         ** (self.periods * self.time)-1) / (
                             self.interest_rate / self.periods))
             print("\nPayment %s\nInt Rate: %s\nLoan Time: %s\n"
                   "Periods: %s\nTotal Periods %s\nPresent Value of Annuity: %s"
@@ -344,8 +348,10 @@ class CompoundFinanceCalc(object):
         balance = self.principal - principal_paid
 
         print("\nPayment#:  Payment  Principal paid:  Interest paid: Balance:")
-        print("   0        %s     %s           %s    %s" % (
-            '${:0,.2f}'.format(self._pmt), '${:0,.2f}'.format(principal_paid), '${:0,.2f}'.format(interest_paid),
+        print("   0        %s     %s           %s    %s" %
+              ('${:0,.2f}'.format(self._pmt),
+               '${:0,.2f}'.format(principal_paid),
+               '${:0,.2f}'.format(interest_paid),
             '${:0,.2f}'.format(balance)))
 
         for i in range(periods - 1):
@@ -355,7 +361,8 @@ class CompoundFinanceCalc(object):
             balance = self.principal - principal_paid
             if interest_paid < 0:
                 break
-            print("    %s        %s     %s           %s    %s" % (i + 1, '${:0,.2f}'.format(self._pmt),
-                                                                  '${:0,.2f}'.format(principal_paid),
-                                                                  '${:0,.2f}'.format(interest_paid),
-                                                                  '${:0,.2f}'.format(balance)))
+            print("    %s        %s     %s           %s    %s" %
+                  (i + 1, '${:0,.2f}'.format(self._pmt),
+                            '${:0,.2f}'.format(principal_paid),
+                            '${:0,.2f}'.format(interest_paid),
+                            '${:0,.2f}'.format(balance)))
